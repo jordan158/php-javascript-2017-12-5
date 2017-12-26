@@ -1,0 +1,30 @@
+ <html>
+ <head>
+ <script language="javascript" type="text/javascript">
+ <!--
+ var str="window.alert('ok')";
+ //需求是把一个string(字符串)当做一个脚本执行。
+//window.alert(str);
+
+eval(str);//系统函数，把字符串当作脚本来执行
+//------------------------------------------------------
+/*
+escape和unesacep函数往往配合使用，以防乱码
+1.escape() 函数可对字符串进行编码，
+这样就可以在所有的计算机上读取该字符串
+2.unescape() 对 escape() 编码的字符串进行解码。
+*/
+var str1="中国";
+var str2=escape(str1);
+window.alert(str2);
+
+var str3=unescape(str2);
+window.alert(str3);
+//----------------------------------------------------
+ Window.moveTo(50,50);
+ 
+
+ 
+</script>
+ </head>
+ </html>

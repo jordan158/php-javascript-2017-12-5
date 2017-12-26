@@ -1,0 +1,26 @@
+<html>
+<head>
+<!--js代码一般是放在head标签之间，但实际上也可以在别的位置-->
+<!--
+•	js的位置可以随意放
+•	js必须使用   <script language="javascript">  代码</script>
+•	在一个html文件中（JSP/PHP/ASP.NET）可以出现多对（script）片段，浏览器会按照先后顺序依次执行
+-->
+<script language="javascript">
+window.alert("hello");
+</script>
+</head>
+<body>
+<!--js中的变量的定义（在js中变量用var表示，不管什么类型）
+一.js是弱数据类型语言。
+(在定义变量的时候，统一使用var表示，甚至可以去掉var这个关键字)
+二.js中的变量的数据类型是由js引擎决定。
+-->
+<script language="javascript">
+        var num1=456;
+		var num2=89;
+		var result=num1+num2;
+		window.alert('结果是'+result);//alert函数：
+</script>
+</body>
+</html>

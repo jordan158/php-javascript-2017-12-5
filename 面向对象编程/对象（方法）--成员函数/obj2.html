@@ -1,0 +1,113 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+<!--
+/*
+创建Person实例(传统方法，使用构造函数来创建)
+function Person(0{}
+var p1=new Person;
+p1.name="sp";
+*/
+
+//初步认识Object类,通过object直接创建对象
+
+var p1=new Object();
+p1.name="sp";
+
+window.alert(p1.constructor);
+
+
+var i1=new Number(10);
+window.alert(i1.constructor);
+var i2=10;
+window.alert(i2.constructor);
+
+//这二种方式是等价的
+//************************************************
+
+var i=new Number(10);
+//我们可以给类添加方法
+Number.prototype.add=function(a){
+return this+a;
+}
+window.alert(i.add(10).add(30));
+var b=90;
+window.alert(b.add(40));
+//************************************************
+
+/*
+加深对类和对象的认识
+如何给类添加方法(如何给某类型的所有对象添加方法)
+
+
+请思考给js的Array对象扩展一个find(val)方法，当
+一个Array对象调用该方法的时候，如果能找到val则返回
+其下标，否则返回-1
+*/
+
+//(1)系统包含的方法
+//体念一下array
+
+var arr1=new Array(3);
+arr1[0]="George1"
+arr1[1]="George2"
+arr1[2]="George3"
+//遍历该数组
+for(var i=0;i<arr1.length;i++){
+document.write(arr1[i]+"&nbsp;");
+}
+//使用Array提供的方法颠倒数据
+arr1.reverse();
+document.write("<br/>");
+//遍历该数组
+for(var i=0;i<arr1.length;i++){
+document.write(arr1[i]+"&nbsp;");
+}
+
+//(2)给Array对象添加一个没有的方法
+//现在我们一起看看如何给所有Array对象添加一个方法find(val)
+Array.prototype.find=function(val){
+
+//遍历数组this
+for(var i=0;i<this.length;i++){
+if(val==this[i]){
+    return i;
+  }
+ }
+return -1;
+}
+ document.write("George1 下标="+arr1.find("George1"));
+
+
+/*
+成员函数的细节
+
+(1)成员函数的参数可以是多个
+(2)成员函数可以有返回值，也可以没有，
+但是有的话最多只能有一个。
+(3)js中不支持函数的重载，具体案例如下;
+结论: js在调用一个函数的时候，是根据函数名来调用，
+如果有多个函数名相同，就调用最后一个。
+(4)如果函数和变量没有写入到一个类中，则属于全局的
+*/
+function test(a){
+window.alert(a);
+}
+function test(a,b){
+window.alert(a+""+b);
+}
+test(23);
+//如果同一个函数有多少方法，最后一个会把前面的覆盖
+//只会调用最后一个
+window.test(3,"hello");
+
+
+
+
+
+
+
+//-->
+</script>
+</head>
+</html>

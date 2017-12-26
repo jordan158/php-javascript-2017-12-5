@@ -1,0 +1,68 @@
+<html>
+<head>
+<script language="javascript">
+var n=window.prompt()
+//金字塔
+for (var i=1;i<=n;i++){ 
+            for(var j=1;j<=n-i;j++){
+			document.write("&nbsp");
+			}
+			for(var j=1;j<=2*i-1;j++){
+			document.write("*");
+			} 
+         document.write("<br/>");
+       }
+//空心金字塔 
+for(var i=1;i<=n;i++){
+for(k=1;k<=n-i;k++){
+         document.write("&nbsp");
+		 } 
+for(var j=1;j<=(2*i-1);j++){
+if(i==n){document.write("*");
+} 
+else if(j==1||j==(2*i-1)){
+document.write("*");
+} 
+else{
+document.write("&nbsp");
+}
+ } 
+ document.write("<br/>");
+ } 
+//三角形 
+for(var i=1;i<=n;i++){for(h=1;h<=i;h++){document.write("*");} 
+document.write("<br/>"); } 
+//菱形
+//上半部份
+ for(var i=1;i<=n;i++){ 
+    for(var j=1;j<=n-i;j++){
+          document.write("&nbsp");
+        } 
+		
+    for(var j=1;j<=2*i-1;j++){
+     document.write("*");
+} 
+  document.write("<br/>");
+} 
+//下半部份
+for(var i=1;i<=n;i++){ 
+          for(var j=1;j<=i;j++){
+		  document.write("&nbsp");
+		  } 
+          for(var j=1;j<=(2*(n-i)-1);j++){
+          document.write("*");
+} 
+    document.write("<br/>"); 
+} 
+//空心菱形
+for(var i=1;i<=n;i++){for(k=1;k<=n-i;k++){document.write("&nbsp");} for(var j=1;j<=(2*i-1);j++){ if(j==1||j==(2*i-1)){document.write("*");} 
+else{document.write("&nbsp");} } document.write("<br/>");} 
+for(var i=n-1;1<=i;i--){for(k=1;k<=n-i;k++){document.write("&nbsp");} 
+for(var j=1;j<=(2*i-1);j++){ if(j==1||j==(2*i-1)){document.write("*");} 
+else{document.write("&nbsp");} } 
+document.write("<br/>");}
+</script>
+</head>
+<body>
+</body>
+</html>

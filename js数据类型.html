@@ -1,0 +1,103 @@
+<html>
+<head>
+<!--
+一。基本数据类型。
+1.数值
+  一.整型10,8,16进制(16进制以0x开头，8进制以0开头，十进制第一位不能为0)
+  二.实型常量（12.32，193.25，5E7,4e5等）
+  三.特殊值NaN(not a number),infinity(无穷大)
+     isNaN()判断一个数是否为一个数字，如果是则为假，否则为真。
+	 isfinity()判断一个是否为无穷大。如果是，则返回假。
+	 
+  
+2.字符串
+ var a="abcd"
+ var a='abcddd'
+ var c="abcdd\"skf1"
+
+
+3.布尔型 
+ var a=true;
+ var b=false;
+  js中非0的数，都为真。
+  特别说明：在逻辑运算中：0，””，false，null，undefined，NaN均表示false
+                除了这些均表示真的。
+
+二.复合类型。
+ 1.数组
+ 2.对象
+
+三.特殊类型
+ 1.null
+ 2.undefine
+
+ 
+ -------------------------------------------------------------------
+
+ js数据类型转换
+1.自动转换换
+var a =123;//a是数值
+a="hello";//a的类型是string
+
+2.强制转换
+比如
+var a="12345";//字符串string
+a=parseInt(a);//使用系统函数强制转换数值number
+
+
+
+var b=90;//数字number
+b=b+"";//转换成字符串string
+--------------------------------------------------------------------------
+
+使用typeof 可以查变量属于什么类型-->
+
+<!--
+一.基本数据类型。
+-->
+<script language="javascript">
+    var v1="abc";//字符串类型string
+	var v2=890;//数值类型number
+	window.alert("v1是"+typeof v1);
+	window.alert("v2是"+typeof v2);
+	
+	var v1=555;//js是动态语言
+	window.alert("v1是"+typeof v1);
+	var a="abc";
+	
+	window.alert(parseInt(a));//输出NAN（not a number）
+	window.alert(6/0);//无穷大,输出infinity
+	window.alert(isNaN("abcd"));//不是数，返回一个true。
+	window.alert(isFinite(6/0));//是一个无穷大的数，返回false;
+	
+	var c="abcdd\"skf1"
+	window.alert(c);//前面加一个反斜扛/可转译特殊字符。
+	
+	
+	
+	
+	
+   
+</script>
+<!--
+二.复合类型。
+-->
+
+
+<!--
+三.特殊类型。
+-->
+<script language="javascript">
+var a=null;//null
+
+window.alert(tt);//报错，未定义
+var aa;//变量没有给值
+window.alert(aa);//弹出undefine;
+
+
+
+</script>
+</head>
+<body>
+</body>
+</html>

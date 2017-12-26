@@ -1,0 +1,130 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+<!--
+/*
+对象-成员函数（方法一）
+比如，我们希望对象不但有属性，还希望他有行为(行为在程序中要靠函数来体现)
+
+*/
+function Person(name,age){
+//这个就是使用传入的实际参数，去初始化属性
+this.name=name;
+this.age=age;
+//(1)输出自己的名字,这里this.show就是一个公开的函数，函数名是show
+this.show=function(){
+document.write("名字="+this.name);
+}
+//(2)添加jisuan函数，可以计算机从1+...+1000的结果
+this.jisuan=function(n){
+ var res=0;
+ for(var i=1;i<=n;i++){
+  res+=i;
+ }
+  return res;
+}
+
+}
+var p1=new Person("宁江",90);
+p1.show();
+
+var p2=new Person("阿飞",12);
+p2.show();
+
+
+document.write("<br/>res="+p1.jisuan(10));
+
+//****************************************************************
+//给一个对象添加(指定)函数的几种方式
+
+//1.	通用常用方式:上面的函数，知道这种通用的方式即可
+//2.方式二:
+function Person1(){
+	this.name="abc";
+	this.age=30;
+}
+function show11(){
+window.alert("hello"+this.name);
+
+}
+var p22 = new Person1();
+p22.abc=show11;
+//把show11函数赋给p22.abc, show11()则表示函数值
+//记住不要加括号
+p22.abc();     //输出helloabc             window.alert（p2.abc）；会把函数打出来
+
+
+//3.方式三:
+function Person2(){
+	this.name="小明";
+	this.age=30;
+}
+var p33 = new Person2();
+p33.show3=function show2(){
+window.alert("hello"+this.name);
+}
+p33.show3();  //输出helloabc
+
+window.alert(p22.abc);//把函数本身打出来
+window.alert(show11);//把函数本身打出来
+show11();//输出hello,this.name为underfine
+
+//**************************************************************
+//4.方法四;
+/*
+前几种方法有一个问题，那就是以上对象独占函数代码，
+这样如果对象过多，则会影响效率，
+js设计者，给我们提供了别一个方法，
+原型法：这样多个对象可以共享函数代码，
+代码如下：
+
+补讲 == 号的作用
+1.	当 == 的两边 都是字符串的时候，则比较内容 相等否。
+2.	如 == 的两边 都是数字的时候，则数的大小是否相等。
+3.	如 == 的两边 是对象或对象中的函数属性，则比较地址是否相等。
+*/
+
+//(第一种情况)
+function dog(){}
+
+var dog1=new dog();
+dog1.shout=function(){
+window.alert("小狗");
+}
+dog1.shout();
+var dog2=new dog();
+//dog2.shout();//这里会报错，因为对象没有属性值
+
+
+
+
+//(第二种情况(改进后))
+//希望 所的对象，共享某个函数
+
+function dog(){}
+//使用prototype[类]去绑定一个函数给shuout
+dog.prototype.shout=function(){
+window.alert("小狗");
+}
+
+var dog1=new dog();
+dog1.shout();
+
+var dog2=new dog();
+dog2.shout();//这里正常
+window.alert(dog1.shout==dog2.shout);
+
+
+//扩展,判断二个对象是否相等
+
+var dog3=new dog();
+var dog4=new dog();
+var dog5=dog4
+window.alert("dog3==dog4"+(dog3==dog4));
+window.alert("dog5==dog4"+(dog5==dog4));
+
+
+//-->
+</script>
+</head>
+</html>

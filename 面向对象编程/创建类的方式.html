@@ -1,0 +1,109 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+<!--
+/*
+创建对象的方式有5种
+1）	工厂方法—使用new Object创建对象并添加相关属性
+2）	使用构造函数来定义类（原型对象）
+3）	使用prototype
+4）	构造函数及原型混合方式
+5）	动态原型方式
+方法选择：使用构造函数来定义类（原型对象），然后再创建实例
+基本语法：
+function 类名/原型对象名(){
+}
+创建对象：var 对象名=new 类名();
+
+访问对象的属性的方法有两种：
+(1) 普通方法
+对象名.属性名;
+(2) 动态访问
+对象名["属性名"];
+
+*/
+
+//js中一切都是对象
+function Person(){}
+window.alert(Person.constructor);
+var a=new Person();
+window.alert(a.constructor);//对象实例的构造函数是什么
+window.alert(typeof a);//a的类型是什么
+var b=123;
+window.alert(b.constructor);
+window.alert(typeof b);
+var c="123";
+window.alert(c.constructor);
+window.alert(typeof c);
+
+//如何判断一个对象实例是不是某个类型
+if(a instanceof Person){
+window.alert("a是Person");
+}
+//方法2：
+if(a.constructor==Person){
+window.alert("a是Person");
+}
+//*****************************************************************
+
+//全局变量
+var abc=89;
+function text(){
+//在函数里，如果不带var,则表示使用全局的abc变量
+//如果带上var,则表示在text()中，定义一个新的abc变量。
+ abc=900; 
+}
+text();
+window.alert(abc);
+//********************************************************
+function Person1(){};
+var p1=new Person1();
+p1.name="中国";
+window.alert(p1.name);
+window.alert(p1["name"]);
+
+
+//对象的引用问题说明：
+function Person2(){};
+var a11=new Person2();
+a11.age=10;
+a11.name="小明";
+var b11=a11;
+b11.name="小白";
+//delete a11.name;
+//用于删除属性  指向同一个地方，一个删了b就访问不到了
+//这样就会立即释放对象的属性空间
+window.alert(b11.age+"名字"+b11.name+"名字"+a11.name);
+//输出：10名字小白名字小白
+/*
+对象回收的机制：
+(1) GC
+JS引擎（浏览器的部分）有一张表 
+堆地址和引用的次数
+b=null;
+a=null;
+
+(2) JS提供一种方式主动释放内存
+delete a.age;//用于删除属性  指向同一个地方，一个删了b就访问不到了
+这样就会立即释放对象的属性空间
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-->
+</script>
+</head>
+</html>

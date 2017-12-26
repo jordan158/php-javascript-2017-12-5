@@ -1,0 +1,39 @@
+<html>
+<head>
+<script language="javascript">
+
+var a1=90;
+var b1=8;
+if(a1%b1==0){
+window.alert("能整除");
+}else{
+window.alert("不能整除");
+}
+
+//------------------------------------------------------------
+//   b=++a <==> {a=a+1; b=a;}
+//   b=a++ <==> {b=a;a=a+1;}
+//      ++a   表示先把自己加1再赋值
+//      --a    表示先把自己减1再赋值
+var a2=56;
+var b2=++a2;       
+window.alert(b2);    //     b2=57
+window.alert(a2);     //    a2=57
+
+var a3=56;
+var b3=--a3;         
+window.alert(b3);         //    b3=55
+window.alert(a3);         //    a3=55
+//-------------------------------------------------------------------
+
+var a4=56;
+var b4=90;
+a4-=34;b4%=a4;//(a4=a4-34;b4=b4%a4)
+window.alert(b4);//b等于2
+window.alert(a4);//a等于22
+
+</script>
+</head>
+<body>
+</body>
+</html>

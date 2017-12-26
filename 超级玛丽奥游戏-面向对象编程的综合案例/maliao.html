@@ -1,0 +1,103 @@
+<html>
+<head>
+<!--引入css文件-->
+<link href="mario.css" type="text/css" rel="stylesheet"/>
+<script language="javascript" type="text/javascript">
+<!--
+/*
+游戏的分析：
+(1)看看如何通过按妞来控制mario位置
+(2)设计相关的对象(Mario x,y)
+
+*/
+//设计mario类
+
+function Mario(){
+ this.x=0;
+ this.y=0;
+ 
+ //移动 0->上 1->右 2->下 3->左
+ this.move=function(direct){
+   switch(direct){
+      case 0:
+	    //window.alert("上移动");
+		//这里为了改变img的left和top值，我们需要得到img元素
+		var mymario=document.getElementById("mymario");
+		//window.alert(mymario.style.top);
+		var top=mymario.style.top;
+		top=parseInt(top.substr(0,top.length-2));
+		mymario.style.top=(top-10)+"px";
+		break;
+	  case 1:
+	   // window.alert("右移动");
+		var mymario=document.getElementById("mymario");
+		var right=mymario.style.left;
+		right=parseInt(right.substr(0,right.length-2));//取除去px，转换成数字，进行加法
+		mymario.style.left=(right+10)+"px";
+		//window.alert(left.substr(0,left.length-2));
+		break;
+	  case 2:
+	    //window.alert("下移动");
+		var mymario=document.getElementById("mymario");
+		var down=mymario.style.top;
+		down=parseInt(down.substr(0,down.length-2));
+		mymario.style.top=(down+10)+"px";
+		
+		
+		break;
+	  case 3:
+	    //window.alert("左移动");
+		var mymario=document.getElementById("mymario");
+		var left=mymario.style.left;
+		left=parseInt(left.substr(0,left.length-2));
+		mymario.style.left=(left-10);
+		break;
+   }
+ 
+ }
+}
+//创建Mario对象
+var mario=new Mario();
+
+
+//全局函数
+function marioMove(direct){
+ switch(direct){
+     case 0:
+	   mario.move(direct);
+	   break;
+	 case 1:
+	   mario.move(direct);
+	   break;
+	 case 2:
+	   mario.move(direct);
+	   break;
+	 case 3:
+	   mario.move(direct);
+	   break;
+ }
+}
+
+
+
+
+//-->
+</script>
+</head>
+
+<body>
+<table class="controlcenter" border="1px">
+<tr><td colspan="3">游戏键盘</td></tr>
+<tr><td>**</td><td><input type="button" value="↑↑" onclick="marioMove(0)"/></td><td>**</td></tr>
+<tr><td><input type="button" value="←←" onclick="marioMove(3)"/></td><td>**</td><td><input type="button" value="→→" 
+onclick="marioMove(1)"/></td></tr>
+<tr><td>**</td><td><input type="button" value="↓↓" onclick="marioMove(2)"/></td><td>**</td></tr>
+</table>
+
+<div class="gamediv">
+<img id="mymario" style="width:50px;left:100px;top:50px;position:absolute;" src="mario.jpg"/>
+</div>
+
+
+</body>
+</html>

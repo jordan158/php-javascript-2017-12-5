@@ -1,0 +1,92 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+<!--
+
+//this讲解：
+//问题的提出：
+function Person(){};
+var p1=new Person();
+p1.name = "老韩";
+p1.age = 30;
+window.alert(p1.name+" "+p1.age);
+var p2 = new Person();
+window.alert(p2.name);
+/*
+这里我们可以看到 window.alert(p2.name)会输出 undefined
+
+在实际编程中,我们可能有这样的需求,当我们创建一个对象后,就希望该对象自动的拥有某些属性
+[比如:当我们创建一个Person对象后,就希望该对象自动拥有name和age属性,这又怎么办?
+*/
+
+//使用this 来解决
+function Person1(){
+	this.name="abc";
+	this.age=30;
+}
+var p1 = new Person1();
+var p2 = new Person1();
+p2.name="客户";
+window.alert(p1.name+" "+p2.name);
+
+
+function Person2(){
+
+var name="abc";
+//如果这样使用name这个属性是私有的
+var age=900;
+
+//this.name2表示name2这个属性是公有的
+this.name2="abc2";
+
+this.show=function(){
+//如果你一定要访问私有属性，则需要定义一个公开方法（特权方法）
+
+window.alert(name+" "+age);
+//这个就是Person2的公有的方法。
+show2();
+}
+
+function show2(){
+//这是Person2类的一个私有方法，只能在Person2类中使用
+window.alert("show2()"+ name+" "+age);
+}
+
+}
+
+var p1=new Person2();
+p1.show2;
+//p1.show2();// 这里会报错
+//window.alert(p1.name+" "+p1.age+p1.name2);
+//---------------------------------------------------------
+
+function text1(){
+
+alert(this.v);
+}
+var v=90;
+window.text1();//<==> test1();
+text1();
+
+//哪个对象实例调用this所在的函数，那this就代表哪个对象实例
+//this.v<==>window.v<==>v
+//alert(this.v)<==>window.alert(this.v)<==>window.alert(window.v)<==>window.alert(v)
+//this只能在函数或类内部使用
+function Person3(){
+
+this.v="中国"
+this.abc=function(){
+window.alert(this.v);
+}
+}
+var p= new Person3();
+p.v="hello";
+p.abc();
+
+
+
+
+//-->
+</script>
+</head>
+</html>

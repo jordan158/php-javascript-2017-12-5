@@ -1,0 +1,82 @@
+<html>
+<head>
+<!--
+举例男，男厕所，女，女厕所，否则不上
+-->
+<script language="javascript">
+var sex=window.prompt("请输入性别");
+if (sex=="男"){
+window.alert("上男厕所");
+}else if (sex=="女"){
+window.alert("上女厕所");
+}else{
+window.alert("不上厕所");
+}
+/*------------------------------------------------------
+强调：一量找到一个满足条件的入口，
+执行完毕后，就直接结束这个多分支
+*/
+//swith用法
+var a=890;
+/*
+var obj=new Object();
+var a=new Object();
+*/
+switch(a){
+case "890":
+  window.alert("890");
+  break;//break是跳出整个switch
+case 90:
+  window.alert("90");
+  break;
+/*
+  case a:
+  window.alert("是个Object");//可以是对象
+  break;
+*/
+
+default:
+  window.alert("没有匹配的值");
+  break;
+}
+  window.alert("end");
+  
+ /*
+ 1.js的switch语句数据类型可以是js支持的任何类型
+ （数组和对象除外）
+ 2.case后面的数据类型可以任意（数组和对象除外）
+ 3.break作用是跳出整个switch
+ 4.如果没有匹配的则执行default
+ */
+ 
+ var flag=1.1;
+ switch(flag)
+ {
+    default:
+	window.alert("默认");
+	case'a':
+	window.alert("今天星期一");
+	case'b':
+	window.alert("今天星期二");
+	case 1.1:
+	window.alert("1.1");
+ }//只会输出1.1
+ 
+ var flag=1.2;
+ switch(flag)
+ {
+    default:
+	window.alert("默认");
+	case'a':
+	window.alert("今天星期一");
+	case'b':
+	window.alert("今天星期二");
+	case 1.1:
+	window.alert("1.1");
+ }//如果一个都没匹配到，则执行default
+ 
+
+
+</script>
+</head>
+</html>

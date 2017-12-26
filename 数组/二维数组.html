@@ -1,0 +1,92 @@
+<html>
+<head>
+<script language="javascript" src="function2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+var arr=[["abc",123,4.5],["a","b","c"],[89,0]];
+//二维数组就相当于一维数组中的元素变成数组了
+//三维数组相当于二维数组中的元素又变成数组
+//遍历
+
+for(var i=0;i<arr.length;i++){
+           //输出第一行（二维数组中的一个元素[数组]）
+            for(var j=0;j<arr[i].length;j++){
+			document.writeln(arr[i][j]+"&nbsp");
+			}
+			document.writeln("<br/>");
+}
+//如果要直接访问"c"
+window.alert(arr[1][2]);
+
+/*
+例子一
+0 0 0 0 0 0
+0 0 1 0 0 0
+0 2 0 3 0 0
+0 0 0 0 0 0
+*/
+var arr=[[0,0,0,0,0,0],[0,0,1,0,0,0],[0,2,0,3,0,0],[0,0,0,0,0,0]]
+for(var i=0;i<arr.length;i++){
+           //输出第一行（二维数组中的一个元素[数组]）
+            for(var j=0;j<arr[i].length;j++){
+			document.writeln(arr[i][j]+"&nbsp");
+			}
+			document.writeln("<br/>");
+}
+
+/*
+例子二，矩阵转置，就是行列互换
+2 4 6 8
+8 9 0 -1
+9 6 2 1
+*/
+var arr=[[2,4,6,8],[8,9,0,-1],[9,6,2,1]];
+for(var i=0;i<arr.length;i++){
+           //输出第一行（二维数组中的一个元素[数组]）
+            for(var j=0;j<arr[i].length;j++){
+			document.writeln(arr[i][j]+"&nbsp");
+			}
+			document.writeln("<br/>");
+}
+//矩阵转置
+	document.writeln("矩阵转置<br/>");
+/*
+for(var j=0;j<arr[0].length;j++){
+           //输出第一行（二维数组中的一个元素[数组]）
+            for(var i=0;i<arr.length;i++){
+				document.writeln(arr[i][j]+"&nbsp");
+			}
+			document.writeln("<br/>");
+}
+*/
+//定义一个新的数组
+var arr2=[];
+//初始化，定下有多行
+
+for(var i=0;i<arr[0].length;i++){
+     arr2[i]=[];
+    }
+//可以动态的添加数据
+//遍历旧数组
+for(var i=0;i<arr.length;i++){
+      for(var j=0;j<arr[i].length;j++){
+	  arr2[j][i]=arr[i][j];
+	  }
+ }
+//成功！遍历arr2数组就是一个转置数组
+
+for(var i=0;i<arr2.length;i++){
+for(var j=0;j<arr2[i].length;j++){
+   document.writeln(arr2[i][j]);
+   }
+document.writeln("<br/>");
+}
+
+	
+
+
+
+//-->
+</script>
+</head>
+</html>

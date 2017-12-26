@@ -1,0 +1,79 @@
+<html>
+<head>
+<script language="javascript" src="myfuns.js"></script>
+<!--引入js文件-->
+
+<script language="javascript" type="text/javascript">
+
+/*自定义函数。
+基本概念：为完成某一功能的代码（语句，指令）的集合。
+基本语法：
+
+function 函数名（参数列表）{
+//代码...
+return 值;//可以选择
+}
+说明：
+1.参数列表：表示函数的输入   特别强调：参数名前不要带var
+2.函数主体：表示为了实现某一功能代码块
+3．函数可以有返回值也可以没有
+------------------------------------------------------
+*/
+//type="text/javascript"起到兼容性
+<!--//起到兼容性
+var num1=window.prompt('请输入第一个num');
+var num2=window.prompt('请输入第二个num');
+var operator=window.prompt('请输入运算符');
+num1=parseFloat(num1);// 如果不转换会当作字符串对待
+num2=parseFloat(num2);
+
+/*
+如何调用函数:
+1.普通调用
+函数名（实际参数...）;
+2.var myvar=函数名;
+myvar(实际参数);
+3.关于接受函数返回值的问题。
+函数名('abc')-->函数返回的值交给该变量
+函数名-->函数的引用交给该变量
+如果test函数没有返回值，但是你又接受了，则返回的就是undefined;
+如果有返回值，则是什么就是什么
+
+*/
+document.write("res="+ji_suan(num1,num2,operator));
+
+//1,普通函数调用方法。
+test('hello.word');
+//window.alert(test);//把函数本身打印出来了
+
+//2.第二种函数调用方法。
+var myvar=test('abc');
+//如果test函数没有返回值，但是你又接受了，则返回的就是undefined;
+
+window.alert(myvar);
+//myvar('中国北京');
+
+
+/*
+function ji_suan(num1,num2,operator){//参数名前不能带var
+
+var res=0;
+if(operator=="+"){
+      res=num1+num2;
+}else if(operator=="-"){
+    res=num1-num2;
+}else if(operator=="*"){
+     res=num1*num2;
+}else if(operator=="/"){
+      res=num1/num2;
+	  }
+	 return res;//返回
+
+}
+*/
+
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<html>
+<head>
+<script language="javascript" src="function2.js"></script>
+<script language="javascript" type="text/javascript">
+<!--
+/*
+1.数组，数据类型（引用类型/复杂类型/复合类型）
+2.基本概念：用于存放一组数据
+(特别强调：js中的数组，可以放任何数据类型（数值/字符串）)
+3.数组的细节
+var 数组名=[元素值，元素值];
+元素的值可以是任意类型
+var arr=[1,23,"abc",true];
+
+4.数组的引用 数组名称[下标]
+ 例：var var arr=[1,23,"abc",true];
+ arr[0]=1
+ arr[5]; 输出undefine
+ 结论：不能访问不存在的元素
+ 数组的下标是从0开始编号的
+ 
+ 5.js的数组可以动态增长
+ 数组名是该数组的引用
+ 
+ 6.数组相关函数
+ 
+  一.数组名.length 表示数组的大小
+  二.str.split(" ",3),对字符串分割，生成一个字串数组，参考以下例子
+  
+*/
+
+var weights=[3,5,1,3.4,2,50];
+var all_weight=0;
+var avg_weight=0;
+//数组的遍历
+for(var i=0;i<weights.length;i++){
+         //遍历数组中的数：document.write(weights[i]+" ");
+      all_weight+=weights[i];
+	  }
+	  avg_weight=all_weight/weights.length;
+/*
+1.如果想知道数据类型是什么
+	  window.alert(avg_weight.constructor);
+2.avg_weight.toFixed(3)	小数点后保留三位 
+*/
+	  document.writeln("总体重是"+all_weight+" 平均体重是"+avg_weight.toFixed(3));
+     
+//----------------------------------------------------------------
+
+var myval=900;
+function abc(val){
+ val=90;
+}
+abc(myval);
+window.alert(myval);//900
+//传入一个具体的值
+
+
+var myarr=[123,60,600];
+ function abc2(arr){
+  arr[0]=35;//数组的第一个元素值
+ }
+ abc2(myarr);
+ for(var i=0;i<myarr.length;i++){
+    document.writeln(myarr[i]); //35,60,600
+ }
+ //1.myarr传值到abc2(arr)中，传入的是一个引用的地址
+ //2.arr也会指向该引用。
+ 
+ //---------------------------------------------------------
+ var a=[2,3];
+ window.alert("size="+a.length);//2
+ //动态增长
+ a[2]=56;
+  window.alert("size="+a.length);//3
+  window.alert(a[2]);
+
+//数组名.length 表示数组的大小
+
+//--------------------------------------------------------------------
+
+//.split() 方法用于把一个字符串分割成字符串数组。var arr=str.split(" ",3)
+
+var str="How are you doing today?"
+
+document.write(str.split(" ") + "<br />")//字符串以空格隔开作为数组
+document.write(str.split("") + "<br />")//以每个字符隔开作为数组
+document.write(str.split(" ",3))//取字符串以空格隔开的前三个作为数组
+
+/*
+How,are,you,doing,today?
+H,o,w, ,a,r,e, ,y,o,u, ,d,o,i,n,g, ,t,o,d,a,y,?
+How,are,you
+
+*/
+//-------------------------------------------------------------
+arr=[12,23,34];//arr[0],arr[1],arr[2],arr['gg'],数值的键名可以是字符串类型
+arr['gg']=9000;
+for(var key in arr){
+window.alert(key+"="+arr[key]);
+}
+
+//-->
+</script>
+</head>
+<body>
+</body>
+</html>

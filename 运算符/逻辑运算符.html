@@ -1,0 +1,70 @@
+<html>
+<head>
+<script language="javascript">
+/*----------------------------------------------------------------
+(1)与&&
+
+ If（逻辑表达式1&&逻辑表达式2）{}
+如果 逻辑表达式1为true 则JS引擎会继续执行逻辑表达式2
+如果 逻辑表达式1为false则不会执行逻辑表达式2
+*/
+var a=90;
+var b=9;
+if(a>b && a++>90){//a++先判断再赋值，++a先赋值再判断
+window.alert("ok");
+}else{
+window.alert("no");
+}
+
+window.alert("a="+a);
+
+
+/*------------------------------------------------------------------
+ （2）或||
+ If（逻辑表达式1 || 逻辑表达式2）{}
+如果 逻辑表达式1为true 则JS引擎不会继续执行逻辑表达式2
+如果 逻辑表达式1为false则会执行逻辑表达式2
+*/
+var a1=90;
+var b1=9;
+if(a1<b1 || a1++>90){//a++先判断再赋值，++a先赋值再判断
+window.alert("ok");
+}else{
+window.alert("no");
+}
+
+window.alert("a="+a1);
+
+/*
+在js中||究竟返回什么
+将返回第一个不为false那个值（对象亦可）,或者是返回最后一个值（如果全部都是flase的话）
+返回的不一定是一个布尔值
+比如；
+*/
+
+var a=0;
+var b="返回第一个不为false的值";
+var d=false;
+var c=a||b||d;
+window.alert(c);//返回第一个不为false的值
+
+var a=0;
+var b="";
+var d=false;
+var c=a||b||d;
+window.alert(c);//如果全部为假，假返回最后一个值
+
+/*-------------------------------------------------------------------
+ （3）非！
+特别说明：在逻辑运算中：0，””，false，null，undefined，NaN均表示false
+                除了这些均表示真的。
+*/
+var a=0;
+if(!a){
+window.alert("OK");//输出OK.
+}
+//如果逻辑表达式为true,!(! 逻辑表达式)为false,反之则为true;
+
+</script>
+</head>
+</html>
