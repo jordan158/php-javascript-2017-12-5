@@ -1,0 +1,82 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+<!--
+
+/*
+js内部类(系统提供，可直接使用)
+
+Object/Array/Math/Boolean/string/RegExp/Functions/Number 
+
+从使用的方式看进行分类：
+(1)静态类---使用方法--->类名.属性|方法（Math）
+
+(2)使用var 对象=new 动态类() 对象.属性|方法
+
+*/
+
+//Math(静态)
+
+window.alert(Math.abs(-12));
+window.alert(Math.round(Math.random()*100));//返回1-100的随机数
+
+//Date(动态，在对象上调用)
+//显示当前日期
+var date= new Date();
+window.alert(date.toLocaleString());
+window.alert(date.getFullYear()+" "+date.getMonth()+"");
+//window.alert(date.getHours());
+//window.alert(date.getMinutes());
+/*
+思考题：当用户浏览网页的时候，根据当前的时间，给出问候语：
+
+6:00-9:00    早上好 6:00-9:00
+9:01-11:30   上午好 9:01-11:30
+11:31-2:30   中午好 11:31-14:30
+2:31-5:30    下午好 14:31-17:30
+5:31-6:40    傍晚好 17:31-18:40 
+6:41-12:00   晚上好 18:41-00:00 
+12:01-5:59   凌晨好 0:01-5:59
+
+*/
+var date1=new Date();
+function showHello(date1){
+//小时
+var hour=date1.getHours();
+//分钟
+var minute=date1.getMinutes();
+//1.思路 把当前时间转成距离0:0的秒数(小时数)
+var mysecond=hour*3600+minute*60;
+if(mysecond>=6*3600&&mysecond<=9*3600){
+window.alert("早上好");
+}else if(mysecond>=17*3600+31*60&&mysecond<=18*3600+40*60){
+window.alert("傍晚好");
+}
+
+}
+showHello(date1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-->
+</script>
+</head>
+</html>

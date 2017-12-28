@@ -1,0 +1,121 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+<!--
+
+function MidStu(name,age){
+
+this.name=name;
+this.age=age;
+this.show=function(){
+window.alert(this.name+" "+this.age );
+}
+//计算学费
+this.payFee=function(money){
+window.alert("应缴"+money*0.8);
+}
+}
+
+function Pupi1(){
+this.name=name;
+this.age=age;
+this.show=function(){
+window.alert(this.name+" "+this.age );
+}
+//计算学费
+this.payFee=function(){
+window.alert("应缴"+money*0.5);
+}
+
+}
+//**********************************************
+//解么解决代码冗余---》继承
+
+//抽象出一个学生类，(即把中学生和小学的共性取出)
+
+function Stu(name,age){
+this.name=name;
+this.age=age;
+this.show=function(){
+window.alert(this.name+" "+this.age );
+}
+
+}
+//继承
+function MidStu(name,age){
+window.alert(Stu);
+this.stu=Stu;
+this.stu(name,age);//支持多种继承，一般一种
+//js实际上是通过对象冒充，来实现继承，这句话不能少
+//（js是动态语言，如果不执行，则不能实现继承效果）
+
+//midStu可以覆盖Stu父类的show(重写)
+this.show=function(){
+window.alert("MidStu show();");
+}
+}
+
+function Pupi1(name,age){
+
+this.stu=stu;
+this.stu(name,age);
+}
+var midStu=new MidStu("顺平",20);
+//window.alert(midStu.name);
+midStu.show();
+
+
+/*
+特别说明：通过对象冒充，js可以实现多重继承的效果，用的少
+
+js的重载和重写
+(1)重载：
+函数名一样，但是参数的变量个数或者类型不一样，
+从而在调用的时候调用不同的函数叫重载。js中不支持重载
+(即不可以通过参数的个数来决定调用哪个函数)
+但是js本身支持可变参数，所以，可以看成天然支持重载
+function abc(){
+if(argument.length=...){
+}else if(){
+}
+}
+(2)重写：
+子类可以重写函数，来覆盖父类的某个方法。
+
+
+*/
+
+//重载案例 
+
+    function fun1(obj) { alert(1) }
+    function fun3(obj, obj1, obj2) { alert(3) }
+    function fun2(obj, obj1) { alert(2) }
+  
+
+    function funAll(obj, obj1, obj2, obj3) {
+        if ( arguments.length == 1) {
+            fun1(obj);
+        }
+        else if ( arguments.length == 2) {
+            fun2(obj, obj1);
+        }
+        else if ( arguments.length == 3) {
+            fun3(obj, obj1, obj2);
+        }
+
+        //这里写代码 才能体现 重载的意义
+        // We  Can do Something...
+    }
+
+    funAll("");
+    funAll("", "");
+    funAll("", "","");
+
+
+
+
+
+//-->
+</script>
+</head>
+</html>

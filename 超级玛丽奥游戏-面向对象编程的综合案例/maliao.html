@@ -78,6 +78,14 @@ function marioMove(direct){
  }
 }
 
+function test(){
+
+//window.alert("test");
+var div2=document.getElementById("div2");
+//取出width;
+window.alert(div2.cssText);
+
+}
 
 
 
@@ -91,13 +99,20 @@ function marioMove(direct){
 <tr><td>**</td><td><input type="button" value="↑↑" onclick="marioMove(0)"/></td><td>**</td></tr>
 <tr><td><input type="button" value="←←" onclick="marioMove(3)"/></td><td>**</td><td><input type="button" value="→→" 
 onclick="marioMove(1)"/></td></tr>
-<tr><td>**</td><td><input type="button" value="↓↓" onclick="marioMove(2)"/></td><td>**</td></tr>
+<tr><td>**</td><td><input type="button" value="↓↓" onclick="marioMove(2)"/></td>
+<td><input type="button" value="测试按钮" onclick="test();"/></td></tr>
 </table>
 
 <div class="gamediv">
 <img id="mymario" style="width:50px;left:100px;top:50px;position:absolute;" src="mario.jpg"/>
 </div>
-
+<br/>
+<div id="div2">div2</div>
+<br/>
+<!--
+mario.move(0)
+可以直接调用对象的方法
+-->
 
 </body>
 </html>

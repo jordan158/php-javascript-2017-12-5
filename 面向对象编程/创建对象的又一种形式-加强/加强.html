@@ -1,0 +1,63 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+<!--
+
+
+//创建一个对象比较简单，我们可以直接创建
+//(可以指定普通属性和函数属性)
+
+
+//扩展：
+var dog={name:'小狗',
+age:80,
+fun1:function(){window.alert("hello.word");},
+fun2:function(){window.alert("ok");}
+};
+
+window.alert(dog.constructor);
+window.alert(dog.name+dog.age);
+dog.fun1();
+dog.fun2();
+
+//********************************************
+
+//有时我们会看到这样一种调用方法
+//函数名.call(对象实例)--这样调用，该函数的this就是对像实例
+var dog1={name:'hello'};
+function test(){
+
+window.alert(this.name);
+}
+test();
+new test();
+window.test();
+test.call(dog1);//==>dog.test();
+//test.call(dog1)代表传进去的dog1代表this
+
+//*******************************************************
+
+var dog2=
+{name:'小明',sayHello:function(a,b){window.alert("结果="+(a+b));}};
+//循环列出dog对象的所有属性和方法 对象名['属性名']
+for(var key in dog2){
+document.writeln(dog2[key]);
+}
+
+document.writeln("<br/>");
+//当前浏览器window对象有属性和方法
+document.writeln("当前浏览器window对象有属性和方法***<br/>");
+for(var key in window){
+document.writeln(key+":"+window[key]+"<br/>");
+}
+
+
+
+
+
+
+
+//-->
+</script>
+</head>
+</html>

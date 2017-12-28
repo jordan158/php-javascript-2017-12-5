@@ -1,0 +1,68 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+<!--
+
+function Person(name,age1,sal){
+this.name=name;//公开的属性
+var age=age1;//私有属性
+var salary=sal;//私有属性
+//在类中如何定义公开的方法(特权方法)，私有方法(内部方法)
+//如果我们希望操作私有的属性，则可用公开方法实现
+
+this.show=function(){
+window.alert(age+" "+salary);
+}
+
+//私有方法,可以访问对象的属性
+function show2(){
+window.alert(age+" "+salary);
+}
+
+}
+var p1=new Person('sp',20,50000);
+window.alert(p1.name+" "+p1.age);
+p1.show();//这个ok
+//p1.show2();//不能在类的外部去使用私有的方法
+
+//**************************************
+
+
+function Person1(){
+this.name="abc";
+var age=90;
+this.abc=function(){
+window.alert("abc()");
+}
+
+function abc2(){
+window.alert("abc2");
+}
+
+}
+//使用prototype[类]去绑定一个函数
+Person1.prototype.fun1=function(){
+window.alert(this.name);//ok
+//window.alert(age);//no ok
+this.abc();
+//abc2();//no ok
+}
+
+var p1=new Person1();
+p1.fun1();
+
+
+
+
+
+
+
+
+
+
+
+
+//-->
+</script>
+</head>
+</html>

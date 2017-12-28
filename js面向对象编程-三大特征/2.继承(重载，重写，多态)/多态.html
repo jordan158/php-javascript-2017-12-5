@@ -1,0 +1,68 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+<!--
+
+function Master(){
+
+//给动物喂食
+this.feed=function(animal,food){
+window.alert(animal.constructor);//打印出animal的构造函数
+  document.write("主人给"+animal.name+" 喂"+food.name);
+
+}
+}
+//写食物
+
+function Food(name){
+this.name=name;
+
+}
+function Fish(name){
+this.food=Food;//对象冒充
+this.food(name);
+}
+function Bone(name){
+this.food=Food;//对象冒充
+this.food(name);
+}
+function Taozi(name){
+this.food=Food;//对象冒充
+this.food(name);
+}
+//动物
+
+function Animal(name){
+this.name=name;
+}
+
+function Cat(name){
+this.animal=Animal;//对象冒充
+this.animal(name);
+}
+function Dog(name){
+this.animal=Animal;//对象冒充
+this.animal(name);
+}
+function houzi(name){
+this.animal=Animal;//对象冒充
+this.animal(name);
+}
+
+var cat=new Cat("小猫咪");
+var dog=new Dog("小狗");
+var fish=new Fish("小鱼");
+var bone=new Bone("骨头");
+
+var master=new Master();
+master.feed(cat,fish);
+master.feed(dog,Bone);
+master.feed(new houzi("小猴"),new Taozi("水蜜桃"));
+
+
+
+
+//-->
+</script>
+</head>
+</html>

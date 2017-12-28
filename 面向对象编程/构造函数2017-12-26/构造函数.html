@@ -1,0 +1,66 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+<!--
+
+
+function person(name,age){
+
+this.name=name;
+this.age=age;
+}
+//创建person对象的时候，可以直接给名字和年龄
+var p1=new person('abc',80);
+window.alert(p1.name);
+var p1=new person('hello',900);
+window.alert(p1.name);
+
+//**********************************************
+
+
+//在给一个对象初始化属性值的时候，也可以指定函数属性
+function jisuan(num1,num2,oper){
+if(oper="+"){
+ return num1+num2;
+}else if(oper="-"){
+ return num1-num2;
+}else if(oper="*"){
+ return num1*num2;
+}else(oper="/")
+{
+ return num1/num2;
+}
+
+}
+
+function person1(name,age,fun){
+this.name=name;
+this.age=age;
+this.myfun=fun;
+}
+var p1=new person1('aaa',80,jisuan);
+
+window.alert(p1.name);
+window.alert(p1.myfun(89,80,"+"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-->
+</script>
+</head>
+</html>
